@@ -1,9 +1,15 @@
+from flask import Flask
+
 import random
 from tkinter import *
 from tkinter import ttk
 
 
-def random_numbers():
+app = Flask(__name__)
+
+
+@app.route('/')
+def random_numbers():       
     while len(our_lucky_nums) < 6:
         lucky_num = random.randint(1, 49)
         if lucky_num not in our_lucky_nums:
@@ -73,3 +79,6 @@ ttk.Button(mainframe, text='Shuffle the numbers', command=random_numbers).grid(
     sticky=(N, E, S, W))
 
 root.mainloop()
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
