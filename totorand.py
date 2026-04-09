@@ -1,5 +1,4 @@
 from flask import Flask
-
 import random
 from tkinter import *
 from tkinter import ttk
